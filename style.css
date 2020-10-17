@@ -851,3 +851,9 @@ input:checked + label > .knob > i:before {
     width: 320px;
     margin: 0 auto;
 }
+
+
+/* git init
+git add .
+git commit -m "first commit"
+git push -u origin master */
