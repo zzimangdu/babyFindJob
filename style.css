@@ -37,11 +37,6 @@ body {
   transition: all .2s ease;
 }
 
-.file-upload-content {
-  display: none;
-  text-align: center;
-}
-
 .file-upload-input {
   position: absolute;
   margin: 0;
@@ -387,6 +382,7 @@ body {
     border-radius: 10px;
     border: solid 1.5px #f6f7fa;
     background-color: #f6f7fa;
+    width: 800px
 }
 .file-upload-btn {
   width: 100%;
@@ -852,8 +848,3 @@ input:checked + label > .knob > i:before {
     margin: 0 auto;
 }
 
-
-/* git init
-git add .
-git commit -m "first commit"
-git push -u origin master */
