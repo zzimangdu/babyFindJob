@@ -1,1 +1,1 @@
-{"tfjsVersion":"1.3.1","tmVersion":"2.2.2","packageVersion":"0.8.4","packageName":"@teachablemachine/image","timeStamp":"2020-10-17T04:12:35.000Z","userMetadata":{},"modelName":"test","labels":["actor","politician","sports","announcer","Businessmen","Entertainment","singer"]}
+{"tfjsVersion":"1.3.1","tmVersion":"2.2.2","packageVersion":"0.8.4","packageName":"@teachablemachine/image","timeStamp":"2020-10-18T07:05:54.706Z","userMetadata":{},"modelName":"babyJob","labels":["ceo","official","legal","idol","sports","doctor","creater","gamer"]}
