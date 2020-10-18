@@ -138,7 +138,9 @@
 
             // the link to your model provided by Teachable Machine export panel
             // const URL = 'https://teachablemachine.withgoogle.com/models/QzM2j79Aj/';
-            const URL = './tMachine/man/';
+            const URL = 'https://teachablemachine.withgoogle.com/models/AmuBUVbYn/';
+            
+            // const URL = './tMachine/man/';
 
             let model, webcam, labelContainer, maxPredictions;
 
@@ -220,26 +222,29 @@
                     }
                     var labelTitle;
                     switch (prediction[i].className) {
-                        case 'actor':
-                            labelTitle = '배우';
+                        case 'ceo':
+                            labelTitle = 'CEO';
                             break;
-                        case 'politician':
-                            labelTitle = '정치인';
+                        case 'official':
+                            labelTitle = '고위공무원';
+                            break;
+                        case 'legal':
+                            labelTitle = '법조인';
+                            break;
+                        case 'idol':
+                            labelTitle = '아이돌';
                             break;
                         case 'sports':
                             labelTitle = '스포츠인';
                             break;
-                        case 'announcer':
-                            labelTitle = '아나운서';
+                        case 'doctor':
+                            labelTitle = '의사';
                             break;
-                        case 'Businessmen':
-                            labelTitle = '기업인';
+                        case 'creater':
+                            labelTitle = '크리에이터';
                             break;
-                        case 'Entertainment':
-                            labelTitle = '예능인';
-                            break;
-                        case 'singer':
-                            labelTitle = '가수';
+                        case 'gamer':
+                            labelTitle = '프로게이머';
                             break;
                         default:
                             labelTitle = '알수없음';

@@ -572,7 +572,7 @@ body {
 .bar-container {
   height: 2.7rem;
 }
-.singer-box {
+.ceo-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -581,7 +581,7 @@ body {
   width: 100%;
   background-color: rgba(117, 204, 84, 0.2);
 }
-.singer-bar {
+.ceo-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -589,7 +589,7 @@ body {
   border-radius: 10px;
   background-color: rgba(117, 204, 84, 1);
 }
-.Entertainment-box {
+.official-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -598,7 +598,7 @@ body {
   width: 100%;
   background-color: rgba(117, 204, 84, 0.2);
 }
-.Entertainment-bar {
+.official-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -606,7 +606,7 @@ body {
   border-radius: 10px;
   background-color: rgba(117, 204, 84, 1);
 }
-.actor-box {
+.legal-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -615,7 +615,7 @@ body {
   width: 100%;
   background-color: rgba(27, 175, 234, 0.2);
 }
-.actor-bar {
+.legal-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -623,7 +623,7 @@ body {
   border-radius: 10px;
   background-color: rgba(27, 175, 234, 1);
 }
-.Businessmen-box {
+.idol-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -632,30 +632,13 @@ body {
   width: 100%;
   background-color: rgba(251, 176, 59, 0.2);
 }
-.Businessmen-bar {
+.idol-bar {
   position: absolute;
   top: 0;
   left: 0;
   height: 2rem;
   border-radius: 10px;
   background-color: rgba(251, 176, 59, 1);
-}
-.announcer-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2rem;
-  border-radius: 10px;
-  width: 100%;
-  background-color: rgba(195, 140, 102, 0.2);
-}
-.announcer-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2rem;
-  border-radius: 10px;
-  background-color: rgba(195, 140, 102, 1);
 }
 .sports-box {
   position: absolute;
@@ -664,7 +647,7 @@ body {
   height: 2rem;
   border-radius: 10px;
   width: 100%;
-  background-color: rgba(49, 132, 155, 0.2);
+  background-color: rgba(195, 140, 102, 0.2);
 }
 .sports-bar {
   position: absolute;
@@ -672,9 +655,26 @@ body {
   left: 0;
   height: 2rem;
   border-radius: 10px;
+  background-color: rgba(195, 140, 102, 1);
+}
+.doctor-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(49, 132, 155, 0.2);
+}
+.doctor-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
   background-color: rgba(49, 132, 155, 1);
 }
-.politician-box {
+.creater-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -683,7 +683,7 @@ body {
   width: 100%;
   background-color: rgba(235, 166, 190, 0.2);
 }
-.politician-bar {
+.creater-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -691,6 +691,25 @@ body {
   border-radius: 10px;
   background-color: rgba(235, 166, 190, 1);
 }
+
+.gamer-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(235, 166, 195, 0.2);
+}
+.gamer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(235, 166, 195, 1);
+}
+
 .percent-text {
   font-size: 1rem;
   color: #ffffff;
@@ -712,53 +731,60 @@ body {
 .animal-explain {
     font-size: 1.5rem;
 }
-.singer-animal-title {
+.ceo-animal-title {
     color: #3ba363;
 }
-.singer-animal-celeb {
-    color: #3ba363;
-    font-size: 1.2rem;
-}
-.Entertainment-animal-title {
-    color: #3ba363;
-}
-.Entertainment-animal-celeb {
+.ceo-animal-celeb {
     color: #3ba363;
     font-size: 1.2rem;
 }
-.Businessmen-animal-title {
+.official-animal-title {
+    color: #3ba363;
+}
+.official-animal-celeb {
+    color: #3ba363;
+    font-size: 1.2rem;
+}
+.legal-animal-title {
     color: #ff6c0a;
 }
-.Businessmen-animal-celeb {
+.legal-animal-celeb {
     color: #ff6c0a;
     font-size: 1.2rem;
 }
-.actor-animal-title {
+.idol-animal-title {
     color: #548dd4;
 }
-.actor-animal-celeb {
+.idol-animal-celeb {
     color: #548dd4;
-    font-size: 1.2rem;
-}
-.politician-animal-title {
-    color: #e56995;
-}
-.politician-animal-celeb {
-    color: #e56995;
-    font-size: 1.2rem;
-}
-.announcer-animal-title {
-    color: #9b6b43;
-}
-.announcer-animal-celeb {
-    color: #9b6b43;
     font-size: 1.2rem;
 }
 .sports-animal-title {
-    color: #31849b;
+    color: #e56995;
 }
 .sports-animal-celeb {
+    color: #e56995;
+    font-size: 1.2rem;
+}
+.doctor-animal-title {
+    color: #9b6b43;
+}
+.doctor-animal-celeb {
+    color: #9b6b43;
+    font-size: 1.2rem;
+}
+.creater-animal-title {
     color: #31849b;
+}
+.creater-animal-celeb {
+    color: #31849b;
+    font-size: 1.2rem;
+}
+.gamer-animal-title {
+    color: #B40431;
+}
+.gamer-animal-celeb {
+    color: #B40431;
     font-size: 1.2rem;
 }
 
