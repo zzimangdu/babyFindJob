@@ -709,7 +709,23 @@ body {
   border-radius: 10px;
   background-color: rgba(235, 166, 195, 1);
 }
-
+.announcer-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(235, 166, 195, 0.2);
+}
+.announcer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(235, 166, 195, 1);
+}
 .percent-text {
   font-size: 1rem;
   color: #ffffff;
@@ -784,6 +800,13 @@ body {
     color: #B40431;
 }
 .gamer-animal-celeb {
+    color: #B40431;
+    font-size: 1.2rem;
+}
+.announcer-animal-title {
+    color: #B40431;
+}
+.announcer-animal-celeb {
     color: #B40431;
     font-size: 1.2rem;
 }
