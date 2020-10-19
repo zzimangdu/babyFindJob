@@ -72,8 +72,8 @@ body {
 }
 
 .file-upload-image {
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 300px;
+  max-width: 300px;
   margin: auto;
   padding: 20px;
 }
@@ -460,12 +460,12 @@ body {
   text-transform: uppercase;
 }
 
-.file-upload-image {
+/* .file-upload-image {
   max-height: 60%;
   max-width: 60%;
   margin: auto;
   padding: 10px;
-}
+} */
 
 .try-again-btn {
   border-radius: 40px;
