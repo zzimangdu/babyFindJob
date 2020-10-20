@@ -4,15 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        
-        <meta property="og:title" content="AI가 알려주는 우리아이 장래직업"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://babyfindjob.netlify.app"/>
-        <meta property="og:description" content="우리아이는 커서 어떤 직업을 가질까?"/>
-        <meta property="og:image" content="http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg"/>
+
+        <meta property="og:title" content="AI가 알려주는 우리아이 장래직업" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://babyfindjob.netlify.app" />
+        <meta property="og:description" content="우리아이는 커서 어떤 직업을 가질까?" />
+        <meta
+            property="og:image"
+            content="http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg"
+        />
         <meta property="og:image:width" content="600" />
         <meta property="og:image:height" content="427" />
-        
+
         <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet" />
         <link
             rel="stylesheet"
@@ -22,12 +25,15 @@
         />
         <link rel="stylesheet" href="style.css" />
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f8b03fa541cf11f"></script>
+        <script
+            type="text/javascript"
+            src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f8b03fa541cf11f"
+        ></script>
         <title>Baby Job</title>
     </head>
     <body>
-        
-        <div style="min-width:800px">                    
+       
+        <div style="min-width: 800px;">
             <h1>AI가 알려주는 우리아이 장래직업</h1>
             <div class="AI_subTile">
                 우리아이는 커서 어떤 직업을 가질까?
@@ -44,8 +50,8 @@
             class="jsbin"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
         ></script>
-        
-        <div class="file-upload">            
+
+        <div class="file-upload">
             <div class="image-upload-wrap">
                 <input
                     class="file-upload-input"
@@ -72,11 +78,11 @@
 
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                 <div class="addthis_inline_share_toolbox"></div>
-            
+
                 <div class="image-title-wrap">
-                    <button type="button" onclick="window.location.reload();" class="remove-image">
+                    <a class="remove-image" href="#popup1">
                         다른 사진으로 재시도
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -86,12 +92,37 @@
         <div class="box">
             <!-- <a class="button" onclick="predict()">predict</a> -->
         </div>
+        <div class="ad-banner">
+            <ins
+                class="kakao_ad_area"
+                data-ad-unit="DAN-trzn4ucdx7j9"
+                data-ad-width="320"
+                data-ad-height="100"
+            ></ins>    
+        </div>
+        
 
-        <ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-trzn4ucdx7j9" 
- data-ad-width   = "320" 
- data-ad-height  = "100"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+         <!--     팝업     -->
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <div class="ad-banner">
+                    <ins class="kakao_ad_area" 
+                         data-ad-unit    = "DAN-1ib6hylfrwaqq" 
+                         data-ad-width   = "250" 
+                         data-ad-height  = "250"></ins> 
+                </div>
+                <a class="close" href="#">&times;</a>
+                
+                <div class="image-title-wrap">
+                    <!-- <a class="remove-image" onclick="window.location.reload();" > -->
+                    <a class="remove-image-close" href="https://job-image-kwajg.run.goorm.io/job_image/image_job.html">
+                        다른 사진으로 재시도
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
         <!--    결과      -->
         <link
             href="https://fonts.googleapis.com/css?family=VT323"
@@ -139,7 +170,7 @@
                 $('.file-upload-content').hide();
                 $('.image-upload-wrap').show();
             }
-            
+
             $('.image-upload-wrap').bind('dragover', function () {
                 $('.image-upload-wrap').addClass('image-dropping');
             });
@@ -154,19 +185,16 @@
             // the link to your model provided by Teachable Machine export panel
             // const URL = 'https://teachablemachine.withgoogle.com/models/QzM2j79Aj/';
             //const URL = 'https://teachablemachine.withgoogle.com/models/AmuBUVbYn/';
-            
-            
-            
+
             let model, webcam, labelContainer, maxPredictions;
 
             // Load the image model and setup the webcam
             async function init() {
-                
                 var URL = '';
 
                 if (document.getElementById('gender').checked) {
                     URL = './tMachine/man/';
-                }else{
+                } else {
                     URL = './tMachine/woman/';
                 }
 
@@ -181,8 +209,8 @@
                 maxPredictions = model.getTotalClasses();
                 labelContainer = document.getElementById('label-container');
                 for (let i = 0; i < maxPredictions; i++) {
-                    var element = document.createElement("div")
-                    element.classList.add("d-flex");
+                    var element = document.createElement('div');
+                    element.classList.add('d-flex');
                     labelContainer.appendChild(element);
                 }
             }
@@ -202,50 +230,53 @@
                     switch (prediction[0].className) {
                         case 'ceo':
                             resultTitle = '나라경제를 이끌어갈 최고경영자';
-                            resultExplain = 'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있다.';
-                            resultCeleb = '대표적인 CEO : 이재용, 정몽구, 김택진'
+                            resultExplain =
+                                'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있다.';
+                            resultCeleb = '대표적인 CEO : 이재용, 정몽구, 김택진';
                             break;
                         case 'official':
                             resultTitle = '최고까지 가면 국가원수';
-                            resultExplain = '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있습니다 )을 얘기하며 ( 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급입니다.).';
-                            resultCeleb =
-                                '대표적인 고위공무원 : 문재인, 이낙연, 홍준표';
+                            resultExplain =
+                                '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있습니다 )을 얘기하며 ( 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급입니다.).';
+                            resultCeleb = '대표적인 고위공무원 : 문재인, 이낙연, 홍준표';
                             break;
                         case 'legal':
                             resultTitle = '재판에서 기본이 되는 법조인 (판사, 검사, 변호사)';
-                            resultExplain = '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
-                            resultCeleb =
-                                '대표적인 법조인 : 호통판사 천종호, 윤석열, 한문철';
+                            resultExplain =
+                                '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
+                            resultCeleb = '대표적인 법조인 : 호통판사 천종호, 윤석열, 한문철';
                             break;
                         case 'idol':
                             resultTitle = '방탄소년단 같은 아이돌';
-                            resultExplain = '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있다. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었다';
-                            resultCeleb =
-                                '대표적인 아이돌 : 방탄소년단';
+                            resultExplain =
+                                '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있다. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었다';
+                            resultCeleb = '대표적인 아이돌 : 방탄소년단';
                             break;
                         case 'sports':
                             resultTitle = '새벽잠을 설치게 하는 해외파 운동선수';
-                            resultExplain = '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상';
-                            resultCeleb =
-                                '대표적인 아이돌 : 손흥민, 류현진, 이강인';
+                            resultExplain =
+                                '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상';
+                            resultCeleb = '대표적인 아이돌 : 손흥민, 류현진, 이강인';
                             break;
                         case 'doctor':
                             resultTitle = '부모 선호직업 1순위 의사';
-                            resultExplain = '의사는 의료인의 일종으로서, 사람[5]의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이다. 면허가 없으면 불법이다. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지된다. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받는다. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받는다. 해당 국가의 면허를 반드시 취득해야만 한다.[6]';
-                            resultCeleb =
-                                '대표적인 의사 : 이국종, 성형외과의사';
-                            break;   
+                            resultExplain =
+                                '의사는 의료인의 일종으로서, 사람[5]의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이다. 면허가 없으면 불법이다. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지된다. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받는다. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받는다. 해당 국가의 면허를 반드시 취득해야만 한다.[6]';
+                            resultCeleb = '대표적인 의사 : 이국종, 성형외과의사';
+                            break;
                         case 'creater':
                             resultTitle = '초딩 선호직업 1순위 크리에이터';
-                            resultExplain = '어원 자체는 본 문서 최상단의 Creator에서 유래되었다. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어이다.';
+                            resultExplain =
+                                '어원 자체는 본 문서 최상단의 Creator에서 유래되었다. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어이다.';
                             resultCeleb = '대표적인 크리에이터 : 도티, 보겸, 창현';
-                            break;   
+                            break;
                         case 'gamer':
                             resultTitle = '억대 연봉 프로게이머';
-                            resultExplain = '2010년대에 예능 프로그램을 통해 활약한 전 프로게이머 임요환, 홍진호 등의 활약에 힘입어 프로게이머가 단순한 겜돌이가 아닌 상기된 항목의 소질들을 갈고 닦아 게임이라는 매체를 통해 서로의 역량을 겨루는 직업이었다는 점이 재평가 되면서 게이머의 자질에 관한 이야기는 관련 포럼이나 팬들 사이에서 늘 논의되고 있는 주제 중 한 가지다.';
+                            resultExplain =
+                                '2010년대에 예능 프로그램을 통해 활약한 전 프로게이머 임요환, 홍진호 등의 활약에 힘입어 프로게이머가 단순한 겜돌이가 아닌 상기된 항목의 소질들을 갈고 닦아 게임이라는 매체를 통해 서로의 역량을 겨루는 직업이었다는 점이 재평가 되면서 게이머의 자질에 관한 이야기는 관련 포럼이나 팬들 사이에서 늘 논의되고 있는 주제 중 한 가지다.';
                             resultCeleb = '대표적인 프로게이머 : 페이커, 임요환, 홍진호';
-                            break;                        
-                            
+                            break;
+
                         default:
                             resultTitle = '알수없음';
                             resultExplain = '';
@@ -255,49 +286,54 @@
                     switch (prediction[0].className) {
                         case 'ceo':
                             resultTitle = '나라경제를 이끌어갈 최고경영자';
-                            resultExplain = 'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있다.';
+                            resultExplain =
+                                'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있다.';
                             resultCeleb = '대표적인 CEO : 이부진';
                             break;
                         case 'official':
                             resultTitle = '최고까지 가면 국가원수';
-                            resultExplain = '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있습니다 )을 얘기하며 ( 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급입니다.).';
-                            resultCeleb =
-                                '대표적인 고위공무원 : 박근혜, 나경원';
+                            resultExplain =
+                                '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있습니다 )을 얘기하며 ( 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급입니다.).';
+                            resultCeleb = '대표적인 고위공무원 : 박근혜, 나경원';
                             break;
                         case 'legal':
                             resultTitle = '재판에서 기본이 되는 법조인 (판사, 검사, 변호사)';
-                            resultExplain = '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
+                            resultExplain =
+                                '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
                             resultCeleb = '대표적인 법조인 : 이정미, 임은정';
                             break;
                         case 'idol':
                             resultTitle = '방탄소년단 같은 아이돌';
-                            resultExplain = '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있다. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었다';
+                            resultExplain =
+                                '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있다. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었다';
                             resultCeleb = '대표적인 아이돌 : 블랙핑크';
                             break;
                         case 'sports':
                             resultTitle = '새벽잠을 설치게 하는 해외파 운동선수';
-                            resultExplain = '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상';
-                            resultCeleb =
-                                '대표적인 아이돌 : 김연아, 손연재, 이다영';
+                            resultExplain =
+                                '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상';
+                            resultCeleb = '대표적인 아이돌 : 김연아, 손연재, 이다영';
                             break;
                         case 'doctor':
                             resultTitle = '부모 선호직업 1순위 의사';
-                            resultExplain = '의사는 의료인의 일종으로서, 사람[5]의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이다. 면허가 없으면 불법이다. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지된다. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받는다. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받는다. 해당 국가의 면허를 반드시 취득해야만 한다.[6]';
+                            resultExplain =
+                                '의사는 의료인의 일종으로서, 사람[5]의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이다. 면허가 없으면 불법이다. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지된다. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받는다. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받는다. 해당 국가의 면허를 반드시 취득해야만 한다.[6]';
                             resultCeleb = '대표적인 의사 : 피부과의사, 성형외과의사';
-                            break;   
+                            break;
                         case 'creater':
                             resultTitle = '초딩 선호직업 1순위 크리에이터';
-                            resultExplain = '어원 자체는 본 문서 최상단의 Creator에서 유래되었다. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어이다.';
+                            resultExplain =
+                                '어원 자체는 본 문서 최상단의 Creator에서 유래되었다. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어이다.';
                             resultCeleb = '대표적인 크리에이터 : 쯔양';
-                            break;   
-                        
+                            break;
+
                         case 'announcer':
                             resultTitle = '결혼 1순위 아나운서';
-                            resultExplain = '일반적으로 뉴스, 넓게는 극장, 경기장, 스포츠 경기에서 안내방송(아나운스)을 하는 사람들을 뜻한다. 경마장에서나 경륜장에서의 아나운서도 물론 포함이 된다. 또한 각종 스포츠 방송 중계도 전문 해설자와 함께 경기에 대한 안내를 하기도 한다.';
-                            resultCeleb =
-                                '대표적인 아나운서 : 배현정, 이지애, 최희';
+                            resultExplain =
+                                '일반적으로 뉴스, 넓게는 극장, 경기장, 스포츠 경기에서 안내방송(아나운스)을 하는 사람들을 뜻한다. 경마장에서나 경륜장에서의 아나운서도 물론 포함이 된다. 또한 각종 스포츠 방송 중계도 전문 해설자와 함께 경기에 대한 안내를 하기도 한다.';
+                            resultCeleb = '대표적인 아나운서 : 배현정, 이지애, 최희';
                             break;
-                        
+
                         default:
                             resultTitle = '알수없음';
                             resultExplain = '';
@@ -357,7 +393,7 @@
                         case 'announcer':
                             labelTitle = '아나운서';
                             break;
-                            
+
                         default:
                             labelTitle = '알수없음';
                     }
