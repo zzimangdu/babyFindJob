@@ -387,7 +387,7 @@ body {
 }
 .file-upload {
     padding: 1% 3%;
-    margin: 0 auto;
+    margin: 10px auto;
     border-radius: 10px;
     border: solid 1.5px #f6f7fa;
     background-color: #f6f7fa;
@@ -904,6 +904,6 @@ input:checked + label > .knob > i:before {
 
 .ad-banner {
     width: 320px;
-    margin: 20px auto;
+    margin: 0px auto;
 }
 
