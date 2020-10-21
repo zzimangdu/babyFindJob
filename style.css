@@ -904,8 +904,8 @@ input:checked + label > .knob > i:before {
   transform: rotate(134deg);
 }
 
-.ad-banner {
-    width: 320px;
+.ad-banner {    
     margin: 0px auto;
+    width: 100%
 }
 
