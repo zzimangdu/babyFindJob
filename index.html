@@ -1,19 +1,444 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <script type="text/javascript">
-            window.location = '/image_job.html';
-        </script>
-    </head>
+        
+        <script data-ad-client="ca-pub-5972593752550971" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f8b03fa541cf11f"></script>
+        
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1, maximum-scale=0.5, minimum-scale=0.5" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge" /> -->
 
+        <meta property="og:title" content="AI가 알려주는 우리아이 장래직업" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://babyfindjob.netlify.app" />
+        <meta property="og:description" content="우리아이는 커서 어떤 직업을 가질까?" />
+        <meta
+            property="og:image"  content="https://babyfindjob.netlify.app/image/share_img.png"/>        
+        <meta property="og:image:width" content="600" />
+        <meta property="og:image:height" content="600" />
+
+        <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="style.css" />        
+        
+        <title>Baby Job</title>
+    </head>
     <body>
-        index
+        <div style="min-width: 800px;">
+            <h1>AI가 알려주는 우리아이 장래직업</h1>
+            <div class="AI_subTile">
+                우리아이는 커서 어떤 직업을 가질까?
+            </div>
+            <div class="mid">
+                <label class="rocker">
+                    <input type="checkbox" checked id="gender" />
+                    <span class="switch-left">남아</span>
+                    <span class="switch-right">여아</span>
+                </label>
+            </div>
+        </div>
+        <script
+            class="jsbin"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+        ></script>
+
+        <div class="file-upload">
+            <div class="image-upload-wrap">
+                <input
+                    class="file-upload-input"
+                    type="file"
+                    onchange="readURL(this);"
+                    accept="image/*"
+                />
+                <div class="drag-text">
+                    <h3>클릭해서 사진을 추가해주세요.</h3>
+                </div>
+            </div>
+            <div class="file-upload-content">
+                <img class="file-upload-image" id="face-image" src="#" alt="your image" />
+
+                <div id="loading" class="animated bounce">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <p class="text-center">AI가 아이의 직업을 분석중입니다.</p>
+                </div>
+                <p class="result-message"></p>
+                <div id="label-container" class="d-flex flex-column justify-content-around"></div>
+                <div id="addThis" class="addthis_inline_share_toolbox_6lz1"></div>
+
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox"></div>
+
+                <div class="image-title-wrap">
+                    <a class="remove-image" href="#popup1">
+                        다른 사진으로 재시도
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="webcam-container"></div>
+        <!-- <button type="button" onclick="predict()">예측</button> -->
+
+        <div class="box">
+            <!-- <a class="button" onclick="predict()">predict</a> -->
+        </div>
+        <div style="min-width: 800px;">
+            <div class="ad-banner">
+                <ins
+                    class="kakao_ad_area"
+                    data-ad-unit="DAN-trzn4ucdx7j9"
+                    data-ad-width="320"
+                    data-ad-height="100"
+                ></ins>
+            </div>
+            <div class="ad-banner">
+                <ins
+                    class="kakao_ad_area"
+                    data-ad-unit="DAN-t49j1foca89v"
+                    data-ad-width="320"
+                    data-ad-height="100"
+                ></ins>
+            </div>
+        </div>
+
+        <!--     팝업     -->
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <div class="ad-banner">
+                    <ins
+                        class="kakao_ad_area"
+                        data-ad-unit="DAN-1ib6hylfrwaqq"
+                        data-ad-width="250"
+                        data-ad-height="250"
+                    ></ins>
+                </div>
+                <a class="close" href="#">&times;</a>
+
+                <div class="image-title-wrap">
+                    <!-- <a class="remove-image" onclick="window.location.reload();" > -->
+                    <a
+                        class="remove-image-close"
+                        href="https://babyfindjob.netlify.app"
+                    >
+                        다른 사진으로 재시도
+                    </a>
+                </div>
+            </div>
+        </div>
+
         
-        
-        <!-- 
-        git add .
-        git commit -m "first commit"
-        git push -u origin master -->
+        <!--    결과      -->
+        <link
+            href="https://fonts.googleapis.com/css?family=VT323"
+            rel="stylesheet"
+            type="text/css"
+        />
+
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script>
+            // 화면오픈시 실행
+            // window.onload = function () {
+            //     init();
+            // };
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.image-upload-wrap').hide();
+                        $('#loading').show();
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
+
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+
+                    init().then(function () {
+                        predict();
+                        $('#loading').hide();
+                    });
+                } else {
+                    removeUpload();
+                }
+            }
+
+            function removeUpload() {
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.image-upload-wrap').show();
+            }
+
+            $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+            });
+        </script>
+        <script type="text/javascript">
+            // More API functions here:
+            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+            // the link to your model provided by Teachable Machine export panel
+            // const URL = 'https://teachablemachine.withgoogle.com/models/QzM2j79Aj/';
+            //const URL = 'https://teachablemachine.withgoogle.com/models/AmuBUVbYn/';
+
+            let model, webcam, labelContainer, maxPredictions;
+
+            // Load the image model and setup the webcam
+            async function init() {
+                var URL = '';
+
+                if (document.getElementById('gender').checked) {
+                    URL = './tMachine/man/';
+                } else {
+                    URL = './tMachine/woman/';
+                }
+
+                const modelURL = URL + 'model.json';
+                const metadataURL = URL + 'metadata.json';
+
+                // load the model and metadata
+                // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                // or files from your local hard drive
+                // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+                labelContainer = document.getElementById('label-container');
+                for (let i = 0; i < maxPredictions; i++) {
+                    var element = document.createElement('div');
+                    element.classList.add('d-flex');
+                    labelContainer.appendChild(element);
+                }
+            }
+
+            // run the webcam image through the image model
+            async function predict() {
+                // predict can take in an image, video or canvas html element
+                var image = document.getElementById('face-image');
+                const prediction = await model.predict(image, false);
+
+                prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+                console.log(prediction[0].className);
+
+                var resultTitle, resultExplain, resultCeleb;
+                console.log(document.getElementById('gender').checked);
+                if (document.getElementById('gender').checked) {
+                    switch (prediction[0].className) {
+                        case 'ceo':
+                            resultTitle = '나라경제를 이끌어갈 최고경영자';
+                            resultExplain =
+                                'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있어요.';
+                            resultCeleb = '대표적인 CEO : 이재용, 정몽구, 김택진';
+                            break;
+                        case 'official':
+                            resultTitle = '최고까지 가면 국가원수';
+                            resultExplain =
+                                '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있어요 )을 얘기하며 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급이예요.';
+                            resultCeleb = '대표적인 고위공무원 : 문재인, 이낙연, 홍준표';
+                            break;
+                        case 'legal':
+                            resultTitle = '재판에서 기본이 되는 법조인 (판사, 검사, 변호사)';
+                            resultExplain =
+                                '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
+                            resultCeleb = '대표적인 법조인 : 호통판사 천종호, 윤석열, 한문철';
+                            break;
+                        case 'idol':
+                            resultTitle = '방탄소년단 같은 아이돌';
+                            resultExplain =
+                                '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있어요. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었어요';
+                            resultCeleb = '대표적인 아이돌 : 방탄소년단';
+                            break;
+                        case 'sports':
+                            resultTitle = '새벽잠을 설치게 하는 해외파 운동선수';
+                            resultExplain =
+                                '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상이예요';
+                            resultCeleb = '대표적인 아이돌 : 손흥민, 류현진, 이강인';
+                            break;
+                        case 'doctor':
+                            resultTitle = '부모 선호직업 1순위 의사';
+                            resultExplain =
+                                '의사는 의료인의 일종으로서, 사람의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이예요. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지이되요. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받아요. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받아요. 해당 국가의 면허를 반드시 취득해야만 해요.';
+                            resultCeleb = '대표적인 의사 : 이국종, 성형외과의사';
+                            break;
+                        case 'creater':
+                            resultTitle = '초딩 선호직업 1순위 크리에이터';
+                            resultExplain =
+                                '어원 자체는 본 문서 최상단의 Creator에서 유래되었어요. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어예요.';
+                            resultCeleb = '대표적인 크리에이터 : 도티, 보겸, 창현';
+                            break;
+                        case 'gamer':
+                            resultTitle = '억대 연봉 프로게이머';
+                            resultExplain =
+                                '2010년대에 예능 프로그램을 통해 활약한 전 프로게이머 임요환, 홍진호 등의 활약에 힘입어 프로게이머가 단순한 겜돌이가 아닌 상기된 항목의 소질들을 갈고 닦아 게임이라는 매체를 통해 서로의 역량을 겨루는 직업이었다는 점이 재평가 되면서 게이머의 자질에 관한 이야기는 관련 포럼이나 팬들 사이에서 늘 논의되고 있는 주제 중 한 가지예요.';
+                            resultCeleb = '대표적인 프로게이머 : 페이커, 임요환, 홍진호';
+                            break;
+
+                        default:
+                            resultTitle = '알수없음';
+                            resultExplain = '';
+                            resultCeleb = '';
+                    }
+                } else {
+                    switch (prediction[0].className) {
+                        case 'ceo':
+                            resultTitle = '나라경제를 이끌어갈 최고경영자';
+                            resultExplain =
+                                'CEO는 대기업에서 이사회의 주재, 기업그룹 방침의 결정, 장기계획 작성 등과 관련하여 총괄적인 책임을 가지는 최고경영자로, 통상적으로는 기업의 회장이 CEO를 겸임하고 있어요.';
+                            resultCeleb = '대표적인 CEO : 이부진';
+                            break;
+                        case 'official':
+                            resultTitle = '최고까지 가면 국가원수';
+                            resultExplain =
+                                '우리나라 공무원 직급에선 5급이상의 공무원 (공무원은 9급부터 1급까지 있습니다 )을 얘기하며 일반 대기업의 회사와 비교하면 최소한 차장급 이상의 직급이예요.';
+                            resultCeleb = '대표적인 고위공무원 : 박근혜, 나경원';
+                            break;
+                        case 'legal':
+                            resultTitle = '재판에서 기본이 되는 법조인 (판사, 검사, 변호사)';
+                            resultExplain =
+                                '검사는 공익의 대표자다(검찰청법 제4조). 변호사는 인권을 옹호하고 사회정의를 실현한다(변호사법 제1조). 그리고 법관은 이들의 주장을 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다(헌법 제103조)';
+                            resultCeleb = '대표적인 법조인 : 이정미, 임은정';
+                            break;
+                        case 'idol':
+                            resultTitle = '방탄소년단 같은 아이돌';
+                            resultExplain =
+                                '기본적인 의미는 우상(偶像), 즉 우상적인 존재라는 뜻이고, 여기에서 의미가 확장되어 매우 인기 있는 사람이라는 뜻도 있어요. 영단어 idol의 어원은 그리스어로 ιδειν이고 이후에는 ειδo에서 idola로 변형되어서 최종적으로 idol로 변천되었어요';
+                            resultCeleb = '대표적인 아이돌 : 블랙핑크';
+                            break;
+                        case 'sports':
+                            resultTitle = '새벽잠을 설치게 하는 해외파 운동선수';
+                            resultExplain =
+                                '우리나라 선수들이 활약하는 메이저리그나 EPL등은 그나라만을 대표하는 리그가 아니라 세계를 대표하는 리그라 할수있을정도로 대단하고 권위있고 또 그 종목에서 운동하고 있는 세계모든 선수들이 선망의 대상';
+                            resultCeleb = '대표적인 아이돌 : 김연아, 손연재, 이다영';
+                            break;
+                        case 'doctor':
+                            resultTitle = '부모 선호직업 1순위 의사';
+                            resultExplain =
+                                '의사는 의료인의 일종으로서, 사람의 병을 진단하고 치료하는 일을 업으로 하며 국가 면허를 취득한 사람이예요. 아무리 사람을 잘 진단하고 치료해도, 공인된 면허를 취득하지 않으면 법으로 금지된데요. 면허는 국가에 한정되는 경우가 많아, 한국 의사가 일본에 가서 치료하거나 진료하면 불법으로 처벌받아요. 마찬가지로 일본 의사가 한국에서 진료하거나 치료해도 처벌받아요. 해당 국가의 면허를 반드시 취득해야만 해요.';
+                            resultCeleb = '대표적인 의사 : 피부과의사, 성형외과의사';
+                            break;
+                        case 'creater':
+                            resultTitle = '초딩 선호직업 1순위 크리에이터';
+                            resultExplain =
+                                '어원 자체는 본 문서 최상단의 Creator에서 유래되었어요. 아프리카TV, 트위치, 유튜브, 네이버TV, 카카오TV등에서 활동하는 영상 중심 또는 애플 팟캐스트, 팟빵, 팟티에서 활동하는 오디오 중심의 인터넷 방송인들을 일컫는 말로 어떠한 주제 하나를 가지고 인터넷 방송 또는 영상 및 음원 제작을 하는 사람을 가리키는 단어예요.';
+                            resultCeleb = '대표적인 크리에이터 : 쯔양';
+                            break;
+
+                        case 'announcer':
+                            resultTitle = '결혼 1순위 아나운서';
+                            resultExplain =
+                                '일반적으로 뉴스, 넓게는 극장, 경기장, 스포츠 경기에서 안내방송(아나운스)을 하는 사람들을 뜻해요. 경마장에서나 경륜장에서의 아나운서도 물론 포함이 되요. 또한 각종 스포츠 방송 중계도 전문 해설자와 함께 경기에 대한 안내를 하기도 해요.';
+                            resultCeleb = '대표적인 아나운서 : 배현정, 이지애, 최희';
+                            break;
+
+                        default:
+                            resultTitle = '알수없음';
+                            resultExplain = '';
+                            resultCeleb = '';
+                    }
+                }
+                var title =
+                    "<div class='" +
+                    prediction[0].className +
+                    "-animal-title'>" +
+                    resultTitle +
+                    '</div>';
+                var explain = "<div class='animal-explain pt-2'>" + resultExplain + '</div>';
+                var celeb =
+                    "<div class='" +
+                    prediction[0].className +
+                    "-animal-celeb pt-2 pb-2'>" +
+                    resultCeleb +
+                    '</div>';
+                $('.result-message').html(title + explain + celeb);
+
+                var barWidth;
+                for (let i = 0; i < maxPredictions; i++) {
+                    if (prediction[i].probability.toFixed(2) > 0.1) {
+                        barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + '%';
+                    } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                        barWidth = '4%';
+                    } else {
+                        barWidth = '2%';
+                    }
+                    var labelTitle;
+                    switch (prediction[i].className) {
+                        case 'ceo':
+                            labelTitle = 'CEO';
+                            break;
+                        case 'official':
+                            labelTitle = '고위공무원';
+                            break;
+                        case 'legal':
+                            labelTitle = '법조인';
+                            break;
+                        case 'idol':
+                            labelTitle = '아이돌';
+                            break;
+                        case 'sports':
+                            labelTitle = '스포츠인';
+                            break;
+                        case 'doctor':
+                            labelTitle = '의사';
+                            break;
+                        case 'creater':
+                            labelTitle = '크리에이터';
+                            break;
+                        case 'gamer':
+                            labelTitle = '프로게이머';
+                            break;
+                        case 'announcer':
+                            labelTitle = '아나운서';
+                            break;
+
+                        default:
+                            labelTitle = '알수없음';
+                    }
+                    var label =
+                        "<div class='animal-label d-flex align-items-center'>" +
+                        labelTitle +
+                        '</div>';
+                    var bar =
+                        "<div class='bar-container position-relative container'><div class='" +
+                        prediction[i].className +
+                        "-box'></div><div class='d-flex justify-content-center align-items-center " +
+                        prediction[i].className +
+                        "-bar' style='width: " +
+                        barWidth +
+                        "'><span class='d-block percent-text'>" +
+                        Math.round(prediction[i].probability.toFixed(2) * 100) +
+                        '%</span></div></div>';
+                    labelContainer.childNodes[i].innerHTML = label + bar;
+                }
+            }
+        </script>
+
+        <!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+
+        <!-- Copyright (c) 2020 by Christopher Anderton (https://codepen.io/deluxive/pen/lxEGs)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
     </body>
 </html>
