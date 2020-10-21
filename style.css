@@ -1,6 +1,8 @@
 body {
   font-family: sans-serif;
   background-color: #ffffff;
+  background: url(./image/summary.png) center top no-repeat fixed;
+    background-size : contain;
 }
 
 .file-upload {
