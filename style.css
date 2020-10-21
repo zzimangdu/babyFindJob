@@ -178,10 +178,10 @@ h1 {
 
 .popup {
   margin: 70px auto;
-  padding: 20px;
+  padding: 30px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
+  width: 300px;
   position: relative;
   transition: all 5s ease-in-out;
 }
@@ -193,7 +193,7 @@ h1 {
 }
 .popup .close {
   position: absolute;
-  top: 20px;
+  top: 0px;
   right: 30px;
   transition: all 200ms;
   font-size: 30px;
