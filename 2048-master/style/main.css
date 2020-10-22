@@ -768,6 +768,7 @@ hr {
 	list-style:disc;
 	position:relative;
 	float:left;
+    z-index:1000;
 	/* margin:0;
 	padding:0 */
 }
@@ -815,7 +816,7 @@ hr {
 #primary_nav_wrap ul ul li
 {
 	float:none;
-	width:200px
+	width:250px
 }
 
 #primary_nav_wrap ul ul a
