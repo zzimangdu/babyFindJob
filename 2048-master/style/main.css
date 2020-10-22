@@ -2,13 +2,13 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #faf8ef;
+  background: #ffff;
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; }
-
+/* 
 body {
-  margin: 80px 0; }
+  margin: 80px 0; } */
 
 .heading:after {
   content: "";
@@ -155,7 +155,8 @@ hr {
   height: 500px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
   .game-container .game-message {
     display: none;
     position: absolute;
@@ -756,3 +757,100 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+#primary_nav_wrap
+{
+	/* margin-top:15px */
+}
+
+#primary_nav_wrap ul
+{
+	list-style:disc;
+	position:relative;
+	float:left;
+	/* margin:0;
+	padding:0 */
+}
+
+#primary_nav_wrap ul a
+{
+	display:block;
+	/* color:#333; */
+	text-decoration:none;
+	font-weight:700;
+	font-size:Large;
+	line-height:32px;
+	/* padding:0 15px; */
+	/* font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif */
+}
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	/* margin:0; */
+	/* padding:0 */
+}
+
+#primary_nav_wrap ul li.current-menu-item
+{
+	background:#ddd
+}
+
+#primary_nav_wrap ul li:hover
+{
+	background:#f6f6f6
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0
+}
+
+#primary_nav_wrap ul ul li
+{
+	float:none;
+	width:200px
+}
+
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:10px 15px
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block
+}
+
+header {
+  height: 25px;
+  padding: 0.1rem;
+  color: white;
+  background:#fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Copyright (c) 2020 by Phil Hoyt (https://codepen.io/philhoyt/pen/ujHzd)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+
