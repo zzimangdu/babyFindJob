@@ -532,7 +532,7 @@ hr {
   float: right; }
 
 .game-explanation {
-  margin-top: 50px; }
+  margin-top: 10px; }
 
 @media screen and (max-width: 520px) {
   html, body {
@@ -844,6 +844,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.ad-banner {    
+    margin: 0px auto;
+    width: 100%
 }
 
 /* Copyright (c) 2020 by Phil Hoyt (https://codepen.io/philhoyt/pen/ujHzd)
